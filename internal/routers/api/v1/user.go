@@ -26,7 +26,7 @@ func (t User) List(c *gin.Context) {
 
 // @Summary 新增用户
 // @Param name body string true "用户名称" minlength(1) maxlength(100)
-// @Param name body file true "头像文件"
+// @Param avater formData file true "头像文件"
 // @Param state body int false "状态" Enums(0, 1) default(1)
 // @Produce json
 // @Success 200 {object} model.Tag "成功"
@@ -35,11 +35,11 @@ func (t User) Create(c *gin.Context) {
 
 }
 
-// @Summary 更新标签
+// @Summary 更新用户信息
 // @Param id path int true "用户ID"
 // @Param name body string true "用户名称" minlength(1) maxlength(100)
 // @Param state query int false "状态" Enums(0, 1) default(1)
-// @Param name body file true "头像文件"
+// @Param avater formData file true "头像文件"
 // @Produce json
 // @Success 200 {object} model.Tag "成功"
 // @Router /api/v1/user/{id} [put]

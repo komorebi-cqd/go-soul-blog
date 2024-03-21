@@ -1,6 +1,6 @@
 package model
 
-// import "github.com/golang-blog/pkg/app"
+import "github.com/go-soul-blog/pkg/app"
 
 type Article struct {
 	*Model
@@ -11,10 +11,10 @@ type Article struct {
 	State         uint8  `json:"state"`
 }
 
-// type ArticleSwagger struct {
-// 	List  []*Article
-// 	Pager *app.Pager
-// }
+type ArticleSwagger struct {
+	List  []*Article
+	Pager *app.Pager
+}
 
 func (a Article) TableName() string {
 	return "blog_article"

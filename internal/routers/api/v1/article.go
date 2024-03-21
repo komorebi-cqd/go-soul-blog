@@ -14,7 +14,7 @@ func NewArticle() Article {
 // @Summary 获取单个文章
 // @Param id path int true "文章ID"
 // @Produce json
-// @Success 200 {object} model.ArticleSwagger "成功"
+// @Success 200 {object} model.Article "成功"
 // @Router /api/v1/articles/{id} [get]
 func (t Article) Get(c *gin.Context) {
 

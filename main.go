@@ -9,7 +9,9 @@ import (
 	"github.com/go-soul-blog/global"
 	"github.com/go-soul-blog/internal/model"
 	"github.com/go-soul-blog/internal/routers"
+	"github.com/go-soul-blog/pkg/logger"
 	"github.com/go-soul-blog/pkg/setting"
+	"gopkg.in/natefinch/lumberjack.v2"
 )
 
 func init() {
@@ -17,6 +19,12 @@ func init() {
 	err := setupSetting()
 	if err != nil {
 		log.Fatalf("init.setupSetting err: %v", err)
+	}
+
+	err = setupLogger()
+
+	if err != nil {
+		log.Fatalf("init.setupLogger err: %v", err)
 	}
 
 	// 连接数据库
@@ -65,10 +73,23 @@ func setupDBEngine() error {
 	return nil
 }
 
+func setupLogger() error {
+	fileName := global.AppSetting.LogSavePath + "/" + global.AppSetting.LogFileName + global.AppSetting.LogFileExt
+	global.Logger = logger.NewLogger(&lumberjack.Logger{
+		Filename:  fileName,
+		MaxSize:   600,
+		MaxAge:    10,
+		LocalTime: true,
+	}, "", log.LstdFlags).WithCaller(2)
+	return nil
+}
+
 // @title 博客系统
 // @version 1.0
 // @description 博客系统
 func main() {
+	global.Logger.Infof("%s: go-ppppppp/%s", "cqd", "cqd-blog")
+
 	router := routers.NewRouter()
 
 	s := &http.Server{
