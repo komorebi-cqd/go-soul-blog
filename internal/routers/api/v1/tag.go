@@ -8,15 +8,7 @@ func NewTag() Tag {
 	return Tag{}
 }
 
-func (t Tag) Get(c *gin.Context) {
-
-}
-
-// @Summary 获取多个标签
-// @Param name query string false "标签名称" maxlength(100)
-// @Param state query int false "状态" Enums(0, 1) default(1)
-// @Param page query int false "页码"
-// @Param page_size query int false "每页数量"
+// @Summary 获取所有标签
 // @Produce json
 // @Success 200 {object} model.TagSwagger "成功"
 // @Router /api/v1/tags [get]

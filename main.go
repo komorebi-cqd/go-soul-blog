@@ -102,3 +102,13 @@ func main() {
 
 	s.ListenAndServe()
 }
+
+// CREATE TABLE comments (
+//     comment_id INT PRIMARY KEY AUTO_INCREMENT,
+//     user_id INT,
+//     post_type ENUM('blog', 'moment'),
+//     post_id INT,
+//     comment_text TEXT,
+//     comment_date TIMESTAMP,
+//     FOREIGN KEY (user_id) REFERENCES users(id)
+// );

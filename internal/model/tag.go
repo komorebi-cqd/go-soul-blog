@@ -1,7 +1,5 @@
 package model
 
-// import "github.com/golang-blog/pkg/app"
-
 type Tag struct {
 	*Model
 	Name  string `json:"name"`
@@ -10,7 +8,6 @@ type Tag struct {
 
 type TagSwagger struct {
 	List []*Tag
-	// Pager *app.Pager
 }
 
 func (t Tag) TableName() string {
