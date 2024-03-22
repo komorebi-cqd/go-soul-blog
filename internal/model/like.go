@@ -9,18 +9,18 @@ const (
 	Comment Type = "comment"
 )
 
-type Links struct {
+type Likes struct {
 	*Model
 	UserId uint32 `json:"user_id"`
 	PostId uint32 `json:"post_id"`
 	Type   Type   `json:"type"`
 }
 
-type LinksSwagger struct {
-	List  []*Links
+type LikesSwagger struct {
+	List  []*Likes
 	Pager *app.Pager
 }
 
-func (a Links) TableName() string {
-	return "links"
+func (a Likes) TableName() string {
+	return "likes"
 }

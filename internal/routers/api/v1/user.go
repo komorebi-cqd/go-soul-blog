@@ -2,13 +2,13 @@ package v1
 
 import "github.com/gin-gonic/gin"
 
-type User struct{}
+type Users struct{}
 
-func NewUser() Tag {
-	return Tag{}
+func NewUsers() Users {
+	return Users{}
 }
 
-func (t User) Get(c *gin.Context) {
+func (t Users) Get(c *gin.Context) {
 
 }
 
@@ -18,9 +18,9 @@ func (t User) Get(c *gin.Context) {
 // @Param page query int false "页码"
 // @Param page_size query int false "每页数量"
 // @Produce json
-// @Success 200 {object} model.TagSwagger "成功"
+// @Success 200 {object} model.UsersSwagger "成功"
 // @Router /api/v1/users [get]
-func (t User) List(c *gin.Context) {
+func (t Users) List(c *gin.Context) {
 
 }
 
@@ -29,9 +29,9 @@ func (t User) List(c *gin.Context) {
 // @Param avater formData file true "头像文件"
 // @Param state body int false "状态" Enums(0, 1) default(1)
 // @Produce json
-// @Success 200 {object} model.Tag "成功"
-// @Router /api/v1/user [post]
-func (t User) Create(c *gin.Context) {
+// @Success 200 {object} model.Users "成功"
+// @Router /api/v1/users [post]
+func (t Users) Create(c *gin.Context) {
 
 }
 
@@ -41,17 +41,17 @@ func (t User) Create(c *gin.Context) {
 // @Param state query int false "状态" Enums(0, 1) default(1)
 // @Param avater formData file true "头像文件"
 // @Produce json
-// @Success 200 {object} model.Tag "成功"
-// @Router /api/v1/user/{id} [put]
-func (t User) Update(c *gin.Context) {
+// @Success 200 {object} model.Users "成功"
+// @Router /api/v1/users/{id} [put]
+func (t Users) Update(c *gin.Context) {
 
 }
 
 // @Summary 删除标签
 // @Param id path int true "标签ID"
 // @Produce json
-// @Success 200 {object} model.Tag "成功"
-// @Router /api/v1/user/{id} [delete]
-func (t User) Delete(c *gin.Context) {
+// @Success 200 {object} model.Users "成功"
+// @Router /api/v1/users/{id} [delete]
+func (t Users) Delete(c *gin.Context) {
 
 }

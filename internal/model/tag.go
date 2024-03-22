@@ -1,15 +1,15 @@
 package model
 
-type Tag struct {
+type Tags struct {
 	*Model
 	Name  string `json:"name"`
 	State uint8  `json:"state"`
 }
 
-type TagSwagger struct {
-	List []*Tag
+type TagsSwagger struct {
+	List []*Tags
 }
 
-func (t Tag) TableName() string {
-	return "blog_tag"
+func (t Tags) TableName() string {
+	return "tags"
 }

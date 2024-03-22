@@ -2,7 +2,7 @@ package model
 
 import "github.com/go-soul-blog/pkg/app"
 
-type User struct {
+type Users struct {
 	*Model
 	Username  string `json:"username"`
 	Email     string `json:"email"`
@@ -12,11 +12,11 @@ type User struct {
 	Introduce string `json:"introduce"`
 }
 
-type UserSwagger struct {
-	List  []*User
+type UsersSwagger struct {
+	List  []*Users
 	Pager *app.Pager
 }
 
-func (t User) TableName() string {
-	return "user"
+func (t Users) TableName() string {
+	return "users"
 }

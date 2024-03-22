@@ -8,5 +8,5 @@ type UserAssociation struct {
 }
 
 func (a UserAssociation) TableName() string {
-	return "blog_user_association"
+	return "user_association"
 }

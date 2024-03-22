@@ -2,7 +2,7 @@ package model
 
 import "github.com/go-soul-blog/pkg/app"
 
-type Article struct {
+type Articles struct {
 	*Model
 	Title         string `json:"title"`
 	Desc          string `json:"desc"`
@@ -12,11 +12,11 @@ type Article struct {
 	IsDraft       uint8  `json:"is_draft"`
 }
 
-type ArticleSwagger struct {
-	List  []*Article
+type ArticlesSwagger struct {
+	List  []*Articles
 	Pager *app.Pager
 }
 
-func (a Article) TableName() string {
-	return "blog_article"
+func (a Articles) TableName() string {
+	return "articles"
 }
