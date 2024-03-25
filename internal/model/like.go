@@ -22,5 +22,5 @@ type LikesSwagger struct {
 }
 
 func (a Likes) TableName() string {
-	return "likes"
+	return "blog_likes"
 }

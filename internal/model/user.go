@@ -18,5 +18,5 @@ type UsersSwagger struct {
 }
 
 func (t Users) TableName() string {
-	return "users"
+	return "blog_users"
 }

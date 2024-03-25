@@ -2,6 +2,9 @@ package v1
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/go-soul-blog/global"
+	"github.com/go-soul-blog/pkg/app"
+	"github.com/go-soul-blog/pkg/errcode"
 )
 
 type Articles struct {
@@ -29,7 +32,20 @@ func (t Articles) Get(c *gin.Context) {
 // @Success 200 {object} model.ArticlesSwagger "成功"
 // @Router /api/v1/articles [get]
 func (t Articles) List(c *gin.Context) {
+	params := struct {
+		Name    string `form:"name" binding:"max=100"`
+		IsDraft uint8  `form:"is_draft,default=1" binding:"oneof=0 1"`
+	}{}
+	response := app.NewResponse(c)
+	valid, errs := app.BindAndValid(c, &params)
+	if !valid {
+		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		errRsp := errcode.InvalidParams.WithDetails(errs.Errors()...)
+		response.ToErrorResponse(errRsp)
+		return
+	}
 
+	response.ToResponse(gin.H{})
 }
 
 // @Summary 新增文章

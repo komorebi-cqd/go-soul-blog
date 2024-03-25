@@ -10,5 +10,5 @@ type TagsSwagger struct {
 }
 
 func (t Tags) TableName() string {
-	return "tags"
+	return "blog_tags"
 }
