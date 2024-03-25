@@ -11,19 +11,9 @@ func NewLikes() Likes {
 	return Likes{}
 }
 
-// @Summary 获取单个说说
-// @Param postId path int true "说说或文章ID"
-// @Param type query string true "类型 blog是图文 comment是评论"
-// @Produce json
-// @Success 200 {object} model.Likes "成功"
-// @Router /api/v1/likes/{postId} [get]
-func (t Likes) Get(c *gin.Context) {
-
-}
-
-// @Summary 获取点赞列表
-// @Param page query int false "页码"
-// @Param page_size query int false "每页数量"
+// @Summary 通过博客或说说ID获取点赞列表
+// @Param postId path int true "博客或说说ID"
+// @Param type query string true "Enums(blog, common) default(blog)"
 // @Produce json
 // @Success 200 {object} model.LikesSwagger "成功"
 // @Router /api/v1/likes [get]
@@ -36,7 +26,7 @@ func (t Likes) List(c *gin.Context) {
 // @Param type query string true "类型 blog是图文 comment是评论"
 // @Produce json
 // @Success 200 {object} model.Likes "成功"
-// @Router /api/v1/likes/{id} [put]
-func (t Likes) Update(c *gin.Context) {
+// @Router /api/v1/likes/{id} [post]
+func (t Likes) Create(c *gin.Context) {
 
 }

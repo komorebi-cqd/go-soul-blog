@@ -20,7 +20,7 @@ const docTemplate = `{
                 "produces": [
                     "application/json"
                 ],
-                "summary": "获取多个文章",
+                "summary": "获取文章列表",
                 "parameters": [
                     {
                         "maxLength": 100,
@@ -57,7 +57,7 @@ const docTemplate = `{
                     "200": {
                         "description": "成功",
                         "schema": {
-                            "$ref": "#/definitions/model.ArticleSwagger"
+                            "$ref": "#/definitions/model.ArticlesSwagger"
                         }
                     }
                 }
@@ -104,7 +104,7 @@ const docTemplate = `{
                     "200": {
                         "description": "成功",
                         "schema": {
-                            "$ref": "#/definitions/model.Article"
+                            "$ref": "#/definitions/model.Articles"
                         }
                     }
                 }
@@ -129,7 +129,7 @@ const docTemplate = `{
                     "200": {
                         "description": "成功",
                         "schema": {
-                            "$ref": "#/definitions/model.Article"
+                            "$ref": "#/definitions/model.Articles"
                         }
                     }
                 }
@@ -182,7 +182,7 @@ const docTemplate = `{
                     "200": {
                         "description": "成功",
                         "schema": {
-                            "$ref": "#/definitions/model.Article"
+                            "$ref": "#/definitions/model.Articles"
                         }
                     }
                 }
@@ -205,35 +205,24 @@ const docTemplate = `{
                     "200": {
                         "description": "成功",
                         "schema": {
-                            "$ref": "#/definitions/model.Article"
+                            "$ref": "#/definitions/model.Articles"
                         }
                     }
                 }
             }
         },
-        "/api/v1/tags": {
+        "/api/v1/diarys": {
             "get": {
                 "produces": [
                     "application/json"
                 ],
-                "summary": "获取多个标签",
+                "summary": "获取说说列表",
                 "parameters": [
                     {
                         "maxLength": 100,
                         "type": "string",
-                        "description": "标签名称",
+                        "description": "说说名称",
                         "name": "name",
-                        "in": "query"
-                    },
-                    {
-                        "enum": [
-                            0,
-                            1
-                        ],
-                        "type": "integer",
-                        "default": 1,
-                        "description": "状态",
-                        "name": "state",
                         "in": "query"
                     },
                     {
@@ -253,7 +242,215 @@ const docTemplate = `{
                     "200": {
                         "description": "成功",
                         "schema": {
-                            "$ref": "#/definitions/model.TagSwagger"
+                            "$ref": "#/definitions/model.DiarysSwagger"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "新增说说",
+                "parameters": [
+                    {
+                        "maxLength": 100,
+                        "minLength": 3,
+                        "type": "string",
+                        "description": "说说名称",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "maxLength": 1000,
+                        "minLength": 3,
+                        "description": "内容",
+                        "name": "content",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "schema": {
+                            "$ref": "#/definitions/model.Diarys"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/diarys/{id}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取单个说说详情",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "说说ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "schema": {
+                            "$ref": "#/definitions/model.Diarys"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "更新说说",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "说说ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "maxLength": 100,
+                        "minLength": 3,
+                        "type": "string",
+                        "description": "说说名称",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "maxLength": 1000,
+                        "minLength": 3,
+                        "description": "内容",
+                        "name": "content",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "schema": {
+                            "$ref": "#/definitions/model.Diarys"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "删除说说",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "说说ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "schema": {
+                            "$ref": "#/definitions/model.Diarys"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/likes": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "通过博客或说说ID获取点赞列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "博客或说说ID",
+                        "name": "postId",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "default": "blog",
+                        "description": "Enums(blog, common) default(blog)",
+                        "name": "type",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "schema": {
+                            "$ref": "#/definitions/model.LikesSwagger"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/likes/{id}": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "点赞",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "说说ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "类型 blog是图文 comment是评论",
+                        "name": "type",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "schema": {
+                            "$ref": "#/definitions/model.Likes"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/tags": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取所有标签",
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "schema": {
+                            "$ref": "#/definitions/model.TagsSwagger"
                         }
                     }
                 }
@@ -300,7 +497,7 @@ const docTemplate = `{
                     "200": {
                         "description": "成功",
                         "schema": {
-                            "$ref": "#/definitions/model.Tag"
+                            "$ref": "#/definitions/model.Tags"
                         }
                     }
                 }
@@ -355,7 +552,7 @@ const docTemplate = `{
                     "200": {
                         "description": "成功",
                         "schema": {
-                            "$ref": "#/definitions/model.Tag"
+                            "$ref": "#/definitions/model.Tags"
                         }
                     }
                 }
@@ -378,133 +575,7 @@ const docTemplate = `{
                     "200": {
                         "description": "成功",
                         "schema": {
-                            "$ref": "#/definitions/model.Tag"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/user": {
-            "post": {
-                "produces": [
-                    "application/json"
-                ],
-                "summary": "新增用户",
-                "parameters": [
-                    {
-                        "maxLength": 100,
-                        "minLength": 1,
-                        "description": "用户名称",
-                        "name": "name",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "type": "file",
-                        "description": "头像文件",
-                        "name": "avater",
-                        "in": "formData",
-                        "required": true
-                    },
-                    {
-                        "default": 1,
-                        "description": "状态",
-                        "name": "state",
-                        "in": "body",
-                        "schema": {
-                            "type": "integer",
-                            "enum": [
-                                0,
-                                1
-                            ]
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "成功",
-                        "schema": {
-                            "$ref": "#/definitions/model.Tag"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/user/{id}": {
-            "put": {
-                "produces": [
-                    "application/json"
-                ],
-                "summary": "更新用户信息",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "description": "用户ID",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
-                    },
-                    {
-                        "maxLength": 100,
-                        "minLength": 1,
-                        "description": "用户名称",
-                        "name": "name",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "enum": [
-                            0,
-                            1
-                        ],
-                        "type": "integer",
-                        "default": 1,
-                        "description": "状态",
-                        "name": "state",
-                        "in": "query"
-                    },
-                    {
-                        "type": "file",
-                        "description": "头像文件",
-                        "name": "avater",
-                        "in": "formData",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "成功",
-                        "schema": {
-                            "$ref": "#/definitions/model.Tag"
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "produces": [
-                    "application/json"
-                ],
-                "summary": "删除标签",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "description": "标签ID",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "成功",
-                        "schema": {
-                            "$ref": "#/definitions/model.Tag"
+                            "$ref": "#/definitions/model.Tags"
                         }
                     }
                 }
@@ -552,7 +623,131 @@ const docTemplate = `{
                     "200": {
                         "description": "成功",
                         "schema": {
-                            "$ref": "#/definitions/model.TagSwagger"
+                            "$ref": "#/definitions/model.UsersSwagger"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "新增用户",
+                "parameters": [
+                    {
+                        "maxLength": 100,
+                        "minLength": 1,
+                        "description": "用户名称",
+                        "name": "name",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "type": "file",
+                        "description": "头像文件",
+                        "name": "avater",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "default": 1,
+                        "description": "状态",
+                        "name": "state",
+                        "in": "body",
+                        "schema": {
+                            "type": "integer",
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "schema": {
+                            "$ref": "#/definitions/model.Users"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/users/{id}": {
+            "put": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "更新用户信息",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "用户ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "maxLength": 100,
+                        "minLength": 1,
+                        "description": "用户名称",
+                        "name": "name",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "enum": [
+                            0,
+                            1
+                        ],
+                        "type": "integer",
+                        "default": 1,
+                        "description": "状态",
+                        "name": "state",
+                        "in": "query"
+                    },
+                    {
+                        "type": "file",
+                        "description": "头像文件",
+                        "name": "avater",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "schema": {
+                            "$ref": "#/definitions/model.Users"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "删除标签",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "标签ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "schema": {
+                            "$ref": "#/definitions/model.Users"
                         }
                     }
                 }
@@ -574,7 +769,7 @@ const docTemplate = `{
                 }
             }
         },
-        "model.Article": {
+        "model.Articles": {
             "type": "object",
             "properties": {
                 "content": {
@@ -583,10 +778,8 @@ const docTemplate = `{
                 "cover_image_url": {
                     "type": "string"
                 },
-                "created_by": {
-                    "type": "string"
-                },
                 "created_on": {
+                    "description": "CreatedBy  string ` + "`" + `json:\"created_by\"` + "`" + `\nModifiedBy string ` + "`" + `json:\"modified_by\"` + "`" + `",
                     "type": "string"
                 },
                 "deleted_on": {
@@ -601,8 +794,8 @@ const docTemplate = `{
                 "is_del": {
                     "type": "string"
                 },
-                "modified_by": {
-                    "type": "string"
+                "is_draft": {
+                    "type": "integer"
                 },
                 "modified_on": {
                     "type": "string"
@@ -615,13 +808,13 @@ const docTemplate = `{
                 }
             }
         },
-        "model.ArticleSwagger": {
+        "model.ArticlesSwagger": {
             "type": "object",
             "properties": {
                 "list": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/model.Article"
+                        "$ref": "#/definitions/model.Articles"
                     }
                 },
                 "pager": {
@@ -629,13 +822,14 @@ const docTemplate = `{
                 }
             }
         },
-        "model.Tag": {
+        "model.Diarys": {
             "type": "object",
             "properties": {
-                "created_by": {
+                "content": {
                     "type": "string"
                 },
                 "created_on": {
+                    "description": "CreatedBy  string ` + "`" + `json:\"created_by\"` + "`" + `\nModifiedBy string ` + "`" + `json:\"modified_by\"` + "`" + `",
                     "type": "string"
                 },
                 "deleted_on": {
@@ -647,7 +841,86 @@ const docTemplate = `{
                 "is_del": {
                     "type": "string"
                 },
-                "modified_by": {
+                "modified_on": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.DiarysSwagger": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Diarys"
+                    }
+                },
+                "pager": {
+                    "$ref": "#/definitions/app.Pager"
+                }
+            }
+        },
+        "model.Likes": {
+            "type": "object",
+            "properties": {
+                "created_on": {
+                    "description": "CreatedBy  string ` + "`" + `json:\"created_by\"` + "`" + `\nModifiedBy string ` + "`" + `json:\"modified_by\"` + "`" + `",
+                    "type": "string"
+                },
+                "deleted_on": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "is_del": {
+                    "type": "string"
+                },
+                "modified_on": {
+                    "type": "string"
+                },
+                "post_id": {
+                    "type": "integer"
+                },
+                "type": {
+                    "$ref": "#/definitions/model.Type"
+                },
+                "user_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "model.LikesSwagger": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Likes"
+                    }
+                },
+                "pager": {
+                    "$ref": "#/definitions/app.Pager"
+                }
+            }
+        },
+        "model.Tags": {
+            "type": "object",
+            "properties": {
+                "created_on": {
+                    "description": "CreatedBy  string ` + "`" + `json:\"created_by\"` + "`" + `\nModifiedBy string ` + "`" + `json:\"modified_by\"` + "`" + `",
+                    "type": "string"
+                },
+                "deleted_on": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "is_del": {
                     "type": "string"
                 },
                 "modified_on": {
@@ -661,14 +934,78 @@ const docTemplate = `{
                 }
             }
         },
-        "model.TagSwagger": {
+        "model.TagsSwagger": {
             "type": "object",
             "properties": {
                 "list": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/model.Tag"
+                        "$ref": "#/definitions/model.Tags"
                     }
+                }
+            }
+        },
+        "model.Type": {
+            "type": "string",
+            "enum": [
+                "blog",
+                "comment"
+            ],
+            "x-enum-varnames": [
+                "Blog",
+                "Comment"
+            ]
+        },
+        "model.Users": {
+            "type": "object",
+            "properties": {
+                "avater": {
+                    "type": "string"
+                },
+                "created_on": {
+                    "description": "CreatedBy  string ` + "`" + `json:\"created_by\"` + "`" + `\nModifiedBy string ` + "`" + `json:\"modified_by\"` + "`" + `",
+                    "type": "string"
+                },
+                "deleted_on": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "introduce": {
+                    "type": "string"
+                },
+                "is_del": {
+                    "type": "string"
+                },
+                "modified_on": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "integer"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.UsersSwagger": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Users"
+                    }
+                },
+                "pager": {
+                    "$ref": "#/definitions/app.Pager"
                 }
             }
         }

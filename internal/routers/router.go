@@ -19,6 +19,7 @@ func NewRouter() *gin.Engine {
 	articles := v1.NewArticles()
 	tags := v1.NewTags()
 	diarys := v1.NewDiarys()
+	links := v1.NewLikes()
 
 	apiv1 := r.Group("/api/v1")
 	{
@@ -43,6 +44,9 @@ func NewRouter() *gin.Engine {
 		apiv1.PUT("/diarys/:id", diarys.Update)    // 更新单个说说
 		apiv1.GET("/diarys/:id", diarys.Get)       //获取单个说说
 		apiv1.GET("/diarys", diarys.List)          //获取说说列表
+
+		apiv1.GET("/links", links.List)       //通过blogid获取当前点赞列表
+		apiv1.GET("/links/:id", links.Create) //点赞
 	}
 
 	return r

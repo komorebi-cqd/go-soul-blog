@@ -2,8 +2,7 @@ package model
 
 type Tags struct {
 	*Model
-	Name  string `json:"name"`
-	State uint8  `json:"state"`
+	Name string `json:"name"`
 }
 
 type TagsSwagger struct {

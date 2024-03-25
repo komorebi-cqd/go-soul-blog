@@ -19,7 +19,6 @@ func (t Tags) List(c *gin.Context) {
 // @Summary 新增标签
 // @Param name query string true "标签名称" minlength(3) maxlength(100)
 // @Param state query int false "状态" Enums(0, 1) default(1)
-// @Param created_by body string true "创建者" minlength(3) maxlength(100)
 // @Produce json
 // @Success 200 {object} model.Tags "成功"
 // @Router /api/v1/tags [post]
