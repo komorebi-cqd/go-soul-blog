@@ -6,6 +6,7 @@ type Diarys struct {
 	*Model
 	Title   string `json:"title"`
 	Content string `json:"content"`
+	UserId  string `json:"user_id"`
 }
 
 type DiarysSwagger struct {
@@ -14,5 +15,5 @@ type DiarysSwagger struct {
 }
 
 func (a Diarys) TableName() string {
-	return "blog_diarys"
+	return "blog_diaries"
 }

@@ -10,6 +10,7 @@ type Articles struct {
 	CoverImageUrl string `json:"cover_image_url"`
 	State         uint8  `json:"state"`
 	IsDraft       uint8  `json:"is_draft"`
+	UserId        string `json:"user_id"`
 }
 
 type ArticlesSwagger struct {

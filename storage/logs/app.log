@@ -5,3 +5,5 @@
 2024/03/25 17:15:27 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711358127900381400}
 2024/03/25 17:15:37 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"app.BindAndValid errs: Key: 'IsDraft' Error:Field validation for 'IsDraft' failed on the 'oneof' tag","time":1711358137021548300}
 2024/03/25 17:16:05 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"app.BindAndValid errs: Key: 'Name' Error:Field validation for 'Name' failed on the 'max' tag","time":1711358165109172600}
+2024/03/26 11:42:27 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711424547239917200}
+2024/03/26 11:42:52 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"app.BindAndValid errs: Key: 'IsDraft' Error:Field validation for 'IsDraft' failed on the 'oneof' tag","time":1711424572837939200}
