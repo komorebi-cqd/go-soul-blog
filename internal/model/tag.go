@@ -47,6 +47,7 @@ func (t Tags) List(db *gorm.DB, pageOffset, pageSize int) ([]*Tags, error) {
 }
 
 func (t Tags) Create(db *gorm.DB) error {
+
 	return db.Create(&t).Error
 }
 

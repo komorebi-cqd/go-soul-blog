@@ -1,1 +1,8 @@
-GET http://127.0.0.1:8000/api/v1/articles?is_draft=9&name=dfsdfsdfs HTTP/1.1
+# GET http://127.0.0.1:8000/api/v1/articles?is_draft=9&name=dfsdfsdfs HTTP/1.1
+
+POST http://127.0.0.1:8000/api/v1/tags HTTP/1.1
+content-type: application/json
+
+{
+    "name": "画画2"
+}

@@ -7,3 +7,28 @@
 2024/03/25 17:16:05 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"app.BindAndValid errs: Key: 'Name' Error:Field validation for 'Name' failed on the 'max' tag","time":1711358165109172600}
 2024/03/26 11:42:27 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711424547239917200}
 2024/03/26 11:42:52 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"app.BindAndValid errs: Key: 'IsDraft' Error:Field validation for 'IsDraft' failed on the 'oneof' tag","time":1711424572837939200}
+2024/03/28 11:40:57 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711597257136645700}
+2024/03/28 11:44:01 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"app.BindAndValid errs: Key: 'CreateTagRequest.Name' Error:Field validation for 'Name' failed on the 'required' tag","time":1711597441257096400}
+2024/03/28 11:49:59 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711597799980482900}
+2024/03/28 11:50:08 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"app.BindAndValid errs: Key: 'CreateTagRequest.Name' Error:Field validation for 'Name' failed on the 'required' tag","time":1711597808722842200}
+2024/03/28 11:50:36 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"app.BindAndValid errs: Key: 'CreateTagRequest.Name' Error:Field validation for 'Name' failed on the 'min' tag","time":1711597836271680200}
+2024/03/28 11:51:45 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711597905976498000}
+2024/03/28 11:58:55 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711598335541640700}
+2024/03/28 12:01:14 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711598474050657400}
+2024/03/28 13:43:51 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711604631577858000}
+2024/03/28 13:45:53 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711604753654409400}
+2024/03/28 13:58:08 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711605488818999500}
+2024/03/28 14:03:38 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711605818782841600}
+2024/03/28 14:19:09 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711606749507722900}
+2024/03/28 14:19:23 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.CreateTag errs: Error 1366 (HY000): Incorrect integer value: '' for column 'deleted_on' at row 1","time":1711606763960639100}
+2024/03/28 14:40:45 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711608045186613000}
+2024/03/28 14:40:57 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.CreateTag errs: Error 1366 (HY000): Incorrect integer value: '' for column 'deleted_on' at row 1","time":1711608057096759000}
+2024/03/28 14:45:11 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711608311825559600}
+2024/03/28 14:45:17 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.CreateTag errs: Error 1366 (HY000): Incorrect integer value: '' for column 'deleted_on' at row 1","time":1711608317267094400}
+2024/03/28 14:47:48 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.CreateTag errs: Error 1366 (HY000): Incorrect integer value: '' for column 'deleted_on' at row 1","time":1711608468189300500}
+2024/03/28 14:48:01 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711608481330366400}
+2024/03/28 14:48:10 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.CreateTag errs: Error 1366 (HY000): Incorrect integer value: '' for column 'deleted_on' at row 1","time":1711608490133534800}
+2024/03/28 14:53:28 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711608808715680000}
+2024/03/28 14:53:44 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.CreateTag errs: Error 1366 (HY000): Incorrect integer value: '' for column 'deleted_on' at row 1","time":1711608824140147000}
+2024/03/28 14:57:24 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711609044468639700}
+2024/03/28 15:00:51 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711609251041899500}
