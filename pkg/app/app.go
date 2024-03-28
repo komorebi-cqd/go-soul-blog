@@ -27,17 +27,25 @@ func (r *Response) ToResponse(data interface{}) {
 		data = gin.H{}
 	}
 
-	r.Ctx.JSON(http.StatusOK, data)
+	r.Ctx.JSON(http.StatusOK, gin.H{
+		"code": 200,
+		"data": nil,
+		"msg":  "成功",
+	})
 }
 
 // 列表返回
 func (r *Response) ToResponseList(list interface{}, totalRows int) {
 	r.Ctx.JSON(http.StatusOK, gin.H{
-		"list": list,
-		"pager": Pager{
-			Page:      GetPage(r.Ctx),
-			PageSize:  GetPageSize(r.Ctx),
-			TotalRows: totalRows,
+		"code": 200,
+		"msg":  "成功",
+		"data": gin.H{
+			"list": list,
+			"pager": Pager{
+				Page:      GetPage(r.Ctx),
+				PageSize:  GetPageSize(r.Ctx),
+				TotalRows: totalRows,
+			},
 		},
 	})
 }

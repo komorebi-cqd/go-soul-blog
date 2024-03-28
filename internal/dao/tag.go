@@ -5,6 +5,11 @@ import (
 	"github.com/go-soul-blog/pkg/app"
 )
 
+func (d *Dao) CountTag(name string) (int64, error) {
+	tag := model.Tags{Name: name}
+	return tag.Count(d.engine)
+}
+
 func (d *Dao) GetTagList(name string, page, pageSize int) ([]*model.Tags, error) {
 	tag := model.Tags{Name: name}
 	pageOffset := app.GetPageOffset(page, pageSize)

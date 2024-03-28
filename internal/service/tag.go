@@ -5,6 +5,10 @@ import (
 	"github.com/go-soul-blog/pkg/app"
 )
 
+type CountTagRequest struct {
+	Name string `form:"name" binding:"min=1,max=100"`
+}
+
 type TagListRequest struct {
 	Name string `form:"name" binding:"max=100"`
 }
@@ -20,6 +24,10 @@ type UpdateTagRequest struct {
 
 type DeleteTagRequest struct {
 	ID uint32 `form:"id" binding:"required,gte=1"`
+}
+
+func (svc *Service) CountTag(param *CountTagRequest) (int64, error) {
+	return svc.dao.CountTag(param.Name)
 }
 
 func (svc *Service) GetTagList(param *TagListRequest, pager *app.Pager) ([]*model.Tags, error) {

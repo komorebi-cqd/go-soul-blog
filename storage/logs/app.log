@@ -32,3 +32,21 @@
 2024/03/28 14:53:44 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.CreateTag errs: Error 1366 (HY000): Incorrect integer value: '' for column 'deleted_on' at row 1","time":1711608824140147000}
 2024/03/28 14:57:24 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711609044468639700}
 2024/03/28 15:00:51 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711609251041899500}
+2024/03/28 15:32:10 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711611130694281500}
+2024/03/28 15:34:48 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"app.BindAndValid errs: Key: 'TagListRequest.Name' Error:Field validation for 'Name' failed on the 'min' tag","time":1711611288506383000}
+2024/03/28 15:35:32 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711611332933454900}
+2024/03/28 17:44:14 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711619054909145300}
+2024/03/28 17:45:11 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.CreateTag errs: Error 1264 (22003): Out of range value for column 'created_at' at row 1","time":1711619111331646100}
+2024/03/28 17:49:52 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711619392294344700}
+2024/03/28 17:59:19 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711619959372398600}
+2024/03/28 17:59:52 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711619992805205100}
+2024/03/28 17:59:58 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.GetTagList err: Error 1146 (42S02): Table 'blog_diysoul.tags_list' doesn't exist","time":1711619998906232200}
+2024/03/28 18:03:57 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711620237432490500}
+2024/03/28 18:04:10 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.GetTagList err: unsupported select args \u0026{0 0 0 } []","time":1711620250544662400}
+2024/03/28 18:06:35 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711620395120553000}
+2024/03/28 18:07:46 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711620466214689100}
+2024/03/28 18:08:49 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711620529045350000}
+2024/03/28 18:09:28 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711620568609680100}
+2024/03/28 18:09:57 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711620597069608300}
+2024/03/28 18:14:48 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1711620888641380700}
+2024/03/28 18:14:54 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.GetTagList err: Error 1146 (42S02): Table 'blog_diysoul.tags_list' doesn't exist","time":1711620894220972700}
