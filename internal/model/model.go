@@ -9,15 +9,16 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
+	"gorm.io/plugin/soft_delete"
 )
 
 type Model struct {
 	ID uint32 `gorm:"primaryKey" json:"id"`
 	// CreatedBy  string `json:"created_by"`
 	// ModifiedBy string `json:"modified_by"`
-	CreatedAt int64 `gorm:"autoUpdateTime" json:"created_at"`
-	UpdatedAt int64 `gorm:"autoUpdateTime" json:"updated_at"`
-	DeletedAt int64 `gorm:"autoUpdateTime index" json:"deleted_at"`
+	CreatedAt int64                 `gorm:"autoCreateTime" json:"created_at"`
+	UpdatedAt int64                 `gorm:"autoUpdateTime" json:"updated_at"`
+	DeletedAt soft_delete.DeletedAt `gorm:"softDelete:" json:"deleted_at"`
 }
 
 func NewDBEngine(databaseSetting *setting.DatabaseSettingS) (*gorm.DB, error) {

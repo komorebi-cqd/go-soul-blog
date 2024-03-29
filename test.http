@@ -5,8 +5,21 @@
 # content-type: application/json
 
 # {
-#     "name": "画画2"
+#     "name": "跑步"
 # }
 
 # 获取标签列表
-GET http://127.0.0.1:8000/api/v1/tags?page=1&page_size=10 HTTP/1.1
+# GET http://127.0.0.1:8000/api/v1/tags?page=1&page_size=10 HTTP/1.1
+
+# 删除标签
+# DELETE  http://127.0.0.1:8000/api/v1/tags/99 HTTP/1.1
+
+
+# 修改标签
+PUT  http://127.0.0.1:8000/api/v1/tags HTTP/1.1
+content-type: application/json
+
+{
+    "id": 1999,
+    "name": "你好99"
+}

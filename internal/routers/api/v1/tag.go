@@ -1,6 +1,8 @@
 package v1
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"github.com/go-soul-blog/global"
 	"github.com/go-soul-blog/internal/service"
@@ -20,6 +22,7 @@ func NewTags() Tags {
 // @Router /api/v1/tags [get]
 func (t Tags) List(c *gin.Context) {
 	params := service.TagListRequest{}
+	fmt.Printf("Create params %v c.params %v", params, c.Param("id"))
 	response := app.NewResponse(c)
 	valid, errs := app.BindAndValid(c, &params)
 	if !valid {
@@ -66,6 +69,7 @@ func (t Tags) Create(c *gin.Context) {
 	}
 
 	svc := service.New(c.Request.Context())
+
 	err := svc.CreateTag(&params)
 	if err != nil {
 		global.Logger.Errorf("svc.CreateTag errs: %v", err)
@@ -84,7 +88,23 @@ func (t Tags) Create(c *gin.Context) {
 // @Success 200 {object} model.Tags "成功"
 // @Router /api/v1/tags/{id} [put]
 func (t Tags) Update(c *gin.Context) {
-
+	params := service.UpdateTagRequest{}
+	response := app.NewResponse(c)
+	valid, errs := app.BindAndValid(c, &params)
+	if !valid {
+		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
+		errRsp := errcode.InvalidParams.WithDetails(errs.Errors()...)
+		response.ToErrorResponse(errRsp)
+		return
+	}
+	svc := service.New(c.Request.Context())
+	err := svc.UpdateTag(&service.UpdateTagRequest{ID: params.ID, Name: params.Name})
+	if err != nil {
+		global.Logger.Errorf("svc.UpdateTag errs: %v", err)
+		response.ToErrorResponse(errcode.ErrorUpdateTagFail)
+		return
+	}
+	response.ToResponse(nil)
 }
 
 // @Summary 删除标签
@@ -95,7 +115,7 @@ func (t Tags) Update(c *gin.Context) {
 func (t Tags) Delete(c *gin.Context) {
 	params := service.DeleteTagRequest{}
 	response := app.NewResponse(c)
-	valid, errs := app.BindAndValid(c, &params)
+	valid, errs := app.BindAndValidUri(c, &params)
 	if !valid {
 		global.Logger.Errorf("app.BindAndValid errs: %v", errs)
 		errRsp := errcode.InvalidParams.WithDetails(errs.Errors()...)

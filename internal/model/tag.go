@@ -1,6 +1,9 @@
 package model
 
-import "gorm.io/gorm"
+import (
+	"github.com/go-soul-blog/pkg/errcode"
+	"gorm.io/gorm"
+)
 
 type Tags struct {
 	*Model
@@ -52,11 +55,26 @@ func (t Tags) List(db *gorm.DB, pageOffset, pageSize int) ([]*Tags, error) {
 }
 
 func (t Tags) Create(db *gorm.DB) error {
+	result := db.Where("name = ?", t.Name).Find(&Tags{Name: t.Name})
+	if result.RowsAffected >= 1 {
+		return errcode.ErrorTagNameRepeatFail
+	}
 
 	return db.Create(&t).Error
 }
 
 func (t Tags) Update(db *gorm.DB) error {
+	result := db.Where("name = ?", t.Name).Limit(1).Find(&Tags{Name: t.Name}) //查询name是否存在
+	if result.RowsAffected >= 1 {
+		return errcode.ErrorTagNameRepeatFail
+	}
+
+	result = db.First(&Tags{}, t.ID)
+	// fmt.Printf("%v %v %v %v \n", result.RowsAffected, result.RowsAffected >= 1, result.Error, &t)
+	if result.RowsAffected <= 0 {
+		return errcode.ErrorTagIdNotFoundRepeatFail
+	}
+
 	return db.Model(&Tags{}).Where("id = ?", t.ID).Updates(t).Error
 }
 

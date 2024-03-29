@@ -17,9 +17,11 @@ func (d *Dao) GetTagList(name string, page, pageSize int) ([]*model.Tags, error)
 }
 
 func (d *Dao) CreateTag(name string) error {
+
 	tag := model.Tags{
 		Name: name,
 	}
+
 	return tag.Create(d.engine)
 }
 
