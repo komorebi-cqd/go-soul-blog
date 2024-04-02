@@ -21,6 +21,9 @@ func NewRouter() *gin.Engine {
 	diarys := v1.NewDiarys()
 	links := v1.NewLikes()
 
+	upload := v1.NewUpload()
+	r.POST("/upload/file", upload.UploadFile)
+
 	apiv1 := r.Group("/api/v1")
 	{
 		apiv1.POST("/users", users.Create)       //创建单个用户

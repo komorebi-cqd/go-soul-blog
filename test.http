@@ -16,10 +16,10 @@
 
 
 # 修改标签
-PUT  http://127.0.0.1:8000/api/v1/tags HTTP/1.1
-content-type: application/json
+# PUT  http://127.0.0.1:8000/api/v1/tags HTTP/1.1
+# content-type: application/json
 
-{
-    "id": 1999,
-    "name": "你好99"
-}
+# {
+#     "id": 1999,
+#     "name": "你好99"
+# }

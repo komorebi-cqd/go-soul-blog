@@ -8,4 +8,5 @@ var (
 	ErrorCountTagFail            = NewError(20010005, "统计标签失败")
 	ErrorTagNameRepeatFail       = NewError(20010006, "标签名称重复")
 	ErrorTagIdNotFoundRepeatFail = NewError(20010007, "标签ID不存在")
+	ErrorUploadFileFail          = NewError(20030001, "上传文件失败")
 )

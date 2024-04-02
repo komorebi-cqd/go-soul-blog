@@ -147,3 +147,4 @@
 2024/03/29 17:03:28 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.UpdateTag errs: 错误码：20010006，错误信息：标签名称重复","time":1711703008124730800}
 2024/03/29 17:03:37 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.UpdateTag errs: 错误码：20010006，错误信息：标签名称重复","time":1711703017460332700}
 2024/03/29 17:05:46 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"error","message":"svc.UpdateTag errs: 错误码：20010007，错误信息：标签ID不存在","time":1711703146180033300}
+2024/04/02 17:53:13 {"callers":["F:/study/golang-soul-blog/main.go: 24 main.init.0"],"level":"info","message":"cqd: go-ppppppp/cqd-blog","time":1712051593808101900}
